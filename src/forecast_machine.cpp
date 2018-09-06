@@ -163,15 +163,28 @@ std::vector<size_t> ForecastMachine::find_nearest_neighbors(const vec& dist)
         neighbors = sort_indices(dist, which_lib);
         std::vector<size_t>::iterator curr_lib;
 
-        // find nearest neighbors
-        for(curr_lib = neighbors.begin(); curr_lib != neighbors.end(); ++curr_lib)
+        curr_lib = neighbors.begin();
+
+        if(neighbors.size() < nn)
         {
-            nearest_neighbors.push_back(*curr_lib);
-            if(nearest_neighbors.size() >= nn)
-                break;
+            return neighbors;
         }
-        if(curr_lib == neighbors.end())
-            return nearest_neighbors;
+        else
+        {
+            // std::copy(neighbors.begin(), neighbors.begin() + nn, nearest_neighbors.begin());
+            std::copy_n(neighbors.begin(), nn, back_inserter(nearest_neighbors));
+            curr_lib += nn;
+        }
+
+        // // find nearest neighbors
+        // for(curr_lib = neighbors.begin(); curr_lib != neighbors.end(); ++curr_lib)
+        // {
+        //     nearest_neighbors.push_back(*curr_lib);
+        //     if(nearest_neighbors.size() >= nn)
+        //         break;
+        // }
+        // if(curr_lib == neighbors.end())
+        //     return nearest_neighbors;
 
         double tie_distance = dist[nearest_neighbors.back()];
 
