@@ -19,9 +19,9 @@ std::vector<size_t> sort_indices_cuda(const vec& v, std::vector<size_t> idx)
 
     // for(int i = 0; i < d_v.size(); i++)
     //     std::cout << "D[" << i << "] = " << d_v[i] << std::endl;
+    // std::cout << "Size: idx = " << idx.size() << " | v = " << v.size() << std::endl;
 
     thrust::sort(d_idx.begin(), d_idx.end(), sortIndices(thrust::raw_pointer_cast(d_v.data())));
-
     thrust::copy(d_idx.begin(), d_idx.end(), idx.begin());
 
     return idx;

@@ -1,4 +1,5 @@
 #include "forecast_machine.h"
+#include "forecast_machine_cuda.h"
 
 static const double min_weight = 0.000001;
 const double ForecastMachine::qnan = std::numeric_limits<double>::quiet_NaN();
