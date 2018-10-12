@@ -1,34 +1,3 @@
 CXX_STD = CXX11
 PKG_CXXFLAGS = -I../inst/include
-
-CUDA_HOME = /usr/local/cuda
-PKG_CPPFLAGS = -I. -I"${CUDA_HOME}/include" -std=c++11
-R_HOME = /home/aist/R/x86_64-pc-linux-gnu-library/3.2
-
-R_INC = /usr/share/R/include
-RCPP_INC = $(R_HOME)/Rcpp/include
-RCPPEIGEN_INC = $(R_HOME)/RcppEigen/include
-
-NVCC = $(CUDA_HOME)/bin/nvcc
-CUDA_INC = $(CUDA_HOME)/include
-CUDA_LIB = $(CUDA_HOME)/lib64
-
-PKG_LIBS = -L$(CUDA_LIB) -L$(CUDA_LIB)/stubs -Wl,-rpath,$(CUDA_LIB) -lnvrtc -lcudart -lcuda -d -lprofiler
-
-NVCC_FLAGS = -Xcompiler "-fPIC"
-
-### Define objects
-cu_sources := $(wildcard *cu)
-cu_sharedlibs := $(patsubst %.cu, %.o,$(cu_sources))
-
-cpp_sources := $(wildcard *.cpp)
-cpp_sharedlibs := $(patsubst %.cpp, %.o, $(cpp_sources))
-
-OBJECTS = $(cu_sharedlibs) $(cpp_sharedlibs)
-
-all : rcppcuda.so
-
-rcppcuda.so: $(OBJECTS)
-
-%.o: %.cu $(cu_sources)
-	$(NVCC) $(NVCC_FLAGS) -I$(CUDA_INC) --expt-extended-lambda $< -c -std=c++11 -I.
+PKG_LIBS = -lprofiler -g

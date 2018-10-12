@@ -1,5 +1,5 @@
 #include "forecast_machine.h"
-#include "forecast_machine_cuda.h"
+// #include "forecast_machine_cuda.h"
 
 static const double min_weight = 0.000001;
 const double ForecastMachine::qnan = std::numeric_limits<double>::quiet_NaN();
@@ -75,6 +75,7 @@ void ForecastMachine::init_distances()
                 for (auto a_iter = A.begin(), b_iter = B.begin();
                      a_iter != A.end(); ++a_iter, ++b_iter)
                 {
+                    // std::cout << "A: " << *a_iter << " | B: " << *b_iter << std::endl;
                     dist += (*a_iter - *b_iter) * (*a_iter - *b_iter);
                 }
                 return sqrt(dist);
@@ -122,10 +123,15 @@ void ForecastMachine::compute_distances()
                                      {
                                          curr_pred = which_pred[i];
     */
+    // std::cout << "----------" << std::endl;
+    // std::cout << "----------" << std::endl;
+    // std::cout << "----------" << std::endl;
+
     for(auto& curr_pred: which_pred)
     {
         for(auto& curr_lib: which_lib)
         {
+            // std::cout << "curr_pred: " << curr_pred << " | curr_lib: " << curr_lib << " VectorSize: " << data_vectors[curr_pred].size() << " (" << data_vectors[curr_pred][0] << ")" << " (" << data_vectors[curr_lib][0] << ")" << std::endl;
             if(std::isnan(distances[curr_pred][curr_lib]))
             {
                 distances[curr_pred][curr_lib] = dist_func(data_vectors[curr_pred],
