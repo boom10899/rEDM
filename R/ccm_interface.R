@@ -57,6 +57,26 @@ ccm <- function(block, lib = c(1, NROW(block)), pred = lib,
                 target_column = 2, first_column_time = FALSE, RNGseed = NULL, 
                 exclusion_radius = NULL, epsilon = NULL, silent = FALSE)
 {
+    # cat("block: ", typeof(block), "\n")
+    # cat("lib: ", typeof(lib), "\n")
+    # cat("pred: ", typeof(pred), "\n")
+    # cat("norm: ", typeof(norm), "\n")
+    # cat("E: ", typeof(E), "\n")
+    # cat("tau: ", typeof(tau), "\n")
+    # cat("tp: ", typeof(tp), "\n")
+    # cat("num_neighbors: ", typeof(num_neighbors), "\n")
+    # cat("lib_sizes: ", typeof(lib_sizes), "\n")
+    # cat("random_libs: ", typeof(random_libs), "\n")
+    # cat("num_samples: ", typeof(num_samples), "\n")
+    # cat("replace: ", typeof(replace), "\n")
+    # cat("lib_column: ", typeof(lib_column), "\n")
+    # cat("target_column: ", typeof(target_column), "\n")
+    # cat("first_column_time: ", typeof(first_column_time), "\n")
+    # cat("RNGseed: ", typeof(RNGseed), "\n")
+    # cat("exclusion_radius: ", typeof(exclusion_radius), "\n")
+    # cat("epsilon: ", typeof(epsilon), "\n")
+    # cat("silent: ", typeof(silent), "\n")
+
     # make new model object
     model <- new(Xmap)
     
