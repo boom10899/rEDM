@@ -11,7 +11,7 @@
 #' 
 #' @inheritParams block_lnlp
 #' @inheritParams simplex
-#' @inheritParams tde_gp
+#' @inheritParams block_gp
 #' @param ... other parameters. see 'Details'
 #' @return If stats_only, then a data.frame with components for the parameters 
 #'   and forecast statistics:
@@ -54,20 +54,10 @@ tde_gp <- function(time_series, lib = c(1, NROW(time_series)), pred = lib,
     pred <- coerce_lib(pred, silent = silent)
 
     # setup data
-    if (is.vector(time_series)) {
-        if (!is.null(names(time_series))) {
-            time <- as.numeric(names(time_series))
-            if (any(is.na(time)))
-                time <- seq_along(time_series)
-        } else {
-            time <- seq_along(time_series)
-        }
-    } else if ((is.matrix(time_series) || is.data.frame(time_series)) && 
-               NCOL(time_series) >= 2) {
-        time <- time_series[, 1]
-        time_series <- time_series[, 2]
-    }
-
+    dat <- setup_time_and_time_series(time_series)
+    time <- dat$time
+    time_series <- dat$time_series
+    
     params <- expand.grid(E = E, tau = tau)
     output <- do.call(rbind, lapply(1:NROW(params), function(i) {
         E <- params$E[i]
