@@ -4,9 +4,10 @@
 \alias{tde_gp}
 \title{(univariate) Time-Delay Embedding forecasting using Gaussian Processes}
 \usage{
-tde_gp(time_series, lib = c(1, NROW(time_series)), pred = lib, E = 1:10,
-  tau = 1, tp = 1, phi = 0, v_e = 0, eta = 0, fit_params = TRUE,
-  stats_only = TRUE, save_covariance_matrix = FALSE, silent = FALSE, ...)
+tde_gp(time_series, lib = c(1, NROW(time_series)), pred = lib,
+  E = 1:10, tau = 1, tp = 1, phi = 0, v_e = 0, eta = 0,
+  fit_params = TRUE, stats_only = TRUE,
+  save_covariance_matrix = FALSE, silent = FALSE, ...)
 }
 \arguments{
 \item{time_series}{either a vector to be used as the time series, or a 
@@ -27,8 +28,20 @@ series to forecast.}
 
 \item{tp}{the prediction horizon (how far ahead to forecast)}
 
+\item{phi}{length-scale parameter. see 'Details'}
+
+\item{v_e}{noise-variance parameter. see 'Details'}
+
+\item{eta}{signal-variance parameter. see 'Details'}
+
+\item{fit_params}{specify whether to use MLE to estimate params over the lib}
+
 \item{stats_only}{specify whether to output just the forecast statistics or 
 the raw predictions for each run}
+
+\item{save_covariance_matrix}{specifies whether to include the full 
+covariance matrix with the output (and forces the full output as if 
+stats_only were set to FALSE)}
 
 \item{silent}{prevents warning messages from being printed to the R console}
 

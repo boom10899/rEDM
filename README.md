@@ -3,11 +3,12 @@
 
 # rEDM
 
-[![Build
-Status](https://travis-ci.org/ha0ye/rEDM.svg?branch=master)](https://travis-ci.org/ha0ye/rEDM)
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.596502.svg)](https://doi.org/10.5281/zenodo.596502)
 [![CRAN
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/rEDM)](https://cran.rstudio.com/web/packages/rEDM/index.html)
+
+<img src="man/figures/rEDM.png" width="200px">
 
 ## Binder Demo
 
@@ -15,7 +16,7 @@ Try out the package without installation (after loading, try clicking on
 `README.Rmd` in the `Files`
 tab).
 
-[![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ha0ye/rEDM/master?urlpath=rstudio)
+
 
 ## Overview
 
@@ -23,7 +24,7 @@ The `rEDM` package is a collection of methods for Empirical Dynamic
 Modeling (EDM). EDM is based on the mathematical theory of recontructing
 attractor manifolds from time series data, with applications to
 forecasting, causal inference, and more. It is based on research
-software previously developed for the Sugihara Lab (University of
+software developed by the Sugihara Lab (University of
 California San Diego, Scripps Institution of Oceanography).
 
 ## Installation
@@ -38,7 +39,7 @@ OR from github with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ha0ye/rEDM")
+devtools::install_github("SugiharaLab/rEDM")
 ```
 
 ## Example
@@ -53,7 +54,7 @@ plot(dat$yr, dat$sunspot_count, type = "l",
      xlab = "year", ylab = "sunspots")
 ```
 
-![](README-sunspots-1.png)<!-- -->
+![](man/figures/sunspots-1.png)<!-- -->
 
 First, we use simplex to determine the optimal embedding dimension, E:
 
@@ -106,7 +107,7 @@ polygon(c(predictions$time, rev(predictions$time)),
         col = rgb(0, 0, 1, 0.5), border = NA)
 ```
 
-![](README-unnamed-chunk-3-1.png)<!-- -->
+![](man/figures/unnamed-chunk-3-1.png)<!-- -->
 
 ## Further Examples
 
