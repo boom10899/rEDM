@@ -4,8 +4,8 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-SEXP start_profiler(SEXP str) {
-    ProfilerStart(as<const char*>(str));
+SEXP start_profiler() {
+    ProfilerStart("profiler.out");
     return R_NilValue;
 }
 
