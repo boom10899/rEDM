@@ -18,6 +18,26 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// start_profiler
+SEXP start_profiler();
+RcppExport SEXP _rEDM_start_profiler() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(start_profiler());
+    return rcpp_result_gen;
+END_RCPP
+}
+// stop_profiler
+SEXP stop_profiler();
+RcppExport SEXP _rEDM_stop_profiler() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(stop_profiler());
+    return rcpp_result_gen;
+END_RCPP
+}
 
 RcppExport SEXP _rcpp_module_boot_block_lnlp_module();
 RcppExport SEXP _rcpp_module_boot_lnlp_module();
@@ -25,6 +45,8 @@ RcppExport SEXP _rcpp_module_boot_xmap_module();
 
 static const R_CallMethodDef CallEntries[] = {
     {"_rEDM_compute_stats", (DL_FUNC) &_rEDM_compute_stats, 2},
+    {"_rEDM_start_profiler", (DL_FUNC) &_rEDM_start_profiler, 0},
+    {"_rEDM_stop_profiler", (DL_FUNC) &_rEDM_stop_profiler, 0},
     {"_rcpp_module_boot_block_lnlp_module", (DL_FUNC) &_rcpp_module_boot_block_lnlp_module, 0},
     {"_rcpp_module_boot_lnlp_module", (DL_FUNC) &_rcpp_module_boot_lnlp_module, 0},
     {"_rcpp_module_boot_xmap_module", (DL_FUNC) &_rcpp_module_boot_xmap_module, 0},

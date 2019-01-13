@@ -5,8 +5,8 @@
 \title{Construct twins based on the recurrence structure}
 \usage{
 identify_twins(block, phase_lock = TRUE, T_period = 24,
-  quantile_vec = c(0.125, 0.12, 0.11, 0.1, 0.09, 0.08, 0.07, 0.06, 0.05, 0.15,
-  0.16, 0.17, 0.18, 0.19, 0.2, 0.04), min_num_twins = 10)
+  quantile_vec = c(0.125, 0.12, 0.11, 0.1, 0.09, 0.08, 0.07, 0.06, 0.05,
+  0.15, 0.16, 0.17, 0.18, 0.19, 0.2, 0.04), min_num_twins = 10)
 }
 \arguments{
 \item{block}{the multivariate time series block. Each row is a data point, 

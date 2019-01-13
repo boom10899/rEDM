@@ -5,3 +5,11 @@ compute_stats <- function(observed, predicted) {
     .Call(`_rEDM_compute_stats`, observed, predicted)
 }
 
+start_profiler <- function() {
+    .Call(`_rEDM_start_profiler`)
+}
+
+stop_profiler <- function() {
+    .Call(`_rEDM_stop_profiler`)
+}
+

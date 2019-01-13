@@ -16,6 +16,8 @@ export(s_map)
 export(simplex)
 export(tde_gp)
 export(test_nonlinearity)
+export(start_profiler)
+export(stop_profiler)
 import(Rcpp)
 importFrom("methods", "new")
 importFrom("stats", "aggregate", "fft", "predict", "runif", "sd",

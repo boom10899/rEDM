@@ -5,8 +5,8 @@
 \title{Perform convergent cross mapping using simplex projection}
 \usage{
 ccm(block, lib = c(1, NROW(block)), pred = lib, norm = 2, E = 1,
-  tau = 1, tp = 0, num_neighbors = "e+1", lib_sizes = seq(10, 100, by =
-  10), random_libs = TRUE, num_samples = 100, replace = TRUE,
+  tau = 1, tp = 0, num_neighbors = "e+1", lib_sizes = seq(10, 100,
+  by = 10), random_libs = TRUE, num_samples = 100, replace = TRUE,
   lib_column = 1, target_column = 2, first_column_time = FALSE,
   RNGseed = NULL, exclusion_radius = NULL, epsilon = NULL,
   silent = FALSE)
